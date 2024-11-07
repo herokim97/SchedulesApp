@@ -2,10 +2,7 @@ package org.example.schedulesapp.dto;
 
 
 import lombok.Getter;
-import org.example.schedulesapp.entity.SchedulesApp;
-
-import java.time.LocalDateTime;
-import java.util.Date;
+import org.example.schedulesapp.entity.Schedules;
 
 @Getter
 public class SchedulesResponseDto {
@@ -18,14 +15,14 @@ public class SchedulesResponseDto {
     private String createdAt;
     private String updatedAt;
 
-    public SchedulesResponseDto(SchedulesApp schedulesApp) {
-        this.id = schedulesApp.getId();
-        this.title = schedulesApp.getTitle();
-        this.work = schedulesApp.getWork();
-        this.date = schedulesApp.getDate();
-        this.userId = schedulesApp.getUserId();
-        this.createdAt = schedulesApp.getCreateDate();
-        this.updatedAt = schedulesApp.getUpdateDate();
+    public SchedulesResponseDto(Schedules schedules) {
+        this.id = schedules.getId();
+        this.title = schedules.getTitle();
+        this.work = schedules.getWork();
+        this.date = schedules.getDate();
+        this.userId = schedules.getUserId();
+        this.createdAt = schedules.getCreateDate();
+        this.updatedAt = schedules.getUpdateDate();
     }
 
 }

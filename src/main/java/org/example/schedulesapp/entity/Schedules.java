@@ -4,14 +4,13 @@ package org.example.schedulesapp.entity;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 import org.example.schedulesapp.dto.SchedulesRequestDto;
 
 @Getter
 @ToString
-public class SchedulesApp {
+public class Schedules {
 
     private Long id;
     private String title;
@@ -26,7 +25,7 @@ public class SchedulesApp {
     private String updateDate;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-    public SchedulesApp(Long id, String title, String work, String userId, String password, String date) {
+    public Schedules(Long id, String title, String work, String userId, String password, String date) {
         this.id = id;
         this.date = date;
         this.title = title;

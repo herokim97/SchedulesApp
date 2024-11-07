@@ -1,8 +1,10 @@
 package org.example.schedulesapp.entity;
 
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,7 +26,7 @@ public class Schedules {
     private String createDate;
     //수정된 일자
     private String updateDate;
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public Schedules(Long id, String title, String work, String userId,  String date, String createDate, String updateDate) {
         this.id = id;
@@ -32,34 +34,22 @@ public class Schedules {
         this.title = title;
         this.work = work;
         this.userId = userId;
-        this.createDate = LocalDateTime.now().withNano(0).format(formatter);
-        this.updateDate = LocalDateTime.now().withNano(0).format(formatter);
+        this.createDate = createDate;
+        this.updateDate = updateDate;
     }
 
     public Schedules(SchedulesRequestDto schedulesRequestDto) {
-        this.date=schedulesRequestDto.getDate();
+        this.date = schedulesRequestDto.getDate();
         this.title = schedulesRequestDto.getTitle();
         this.work = schedulesRequestDto.getWork();
         this.userId = schedulesRequestDto.getUserId();
         this.password = schedulesRequestDto.getPassWord();
-        this.createDate = LocalDateTime.now().withNano(0).format(formatter);
-        this.updateDate = LocalDateTime.now().withNano(0).format(formatter);
+        this.createDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        this.updateDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
     }
 
-    public void update(SchedulesRequestDto dto) {
-        this.title = dto.getTitle();
-        this.work = dto.getWork();
-        this.updateDate = LocalDateTime.now().withNano(0).format(formatter);
-    }
 
-    public void updateUserId(SchedulesRequestDto dto) {
-        this.userId = dto.getUserId();
-        this.updateDate = LocalDateTime.now().withNano(0).format(formatter);
-    }
-    public void updateWork(SchedulesRequestDto dto) {
-        this.work = dto.getWork();
-        this.updateDate = LocalDateTime.now().withNano(0).format(formatter);
-    }
 
 
 

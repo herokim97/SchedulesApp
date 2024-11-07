@@ -3,8 +3,8 @@ package org.example.schedulesapp.dto;
 import lombok.Getter;
 import lombok.ToString;
 
+
 @Getter
-@ToString
 public class SchedulesRequestDto {
 
     private String title;

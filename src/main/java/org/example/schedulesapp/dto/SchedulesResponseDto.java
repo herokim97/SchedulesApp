@@ -1,10 +1,12 @@
 package org.example.schedulesapp.dto;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.example.schedulesapp.entity.Schedules;
 
 @Getter
+@AllArgsConstructor
 public class SchedulesResponseDto {
 
     private Long id;
@@ -24,5 +26,8 @@ public class SchedulesResponseDto {
         this.createdAt = schedules.getCreateDate();
         this.updatedAt = schedules.getUpdateDate();
     }
+
+
+
 
 }

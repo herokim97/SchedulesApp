@@ -21,11 +21,7 @@ public class SchedulesResponseDto {
     private String createdAt;
     private String updatedAt;
 
-
     public SchedulesResponseDto(Schedules schedules) {
-
-
-
 
         this.id = schedules.getId();
         this.title = schedules.getTitle();
@@ -35,8 +31,5 @@ public class SchedulesResponseDto {
         this.createdAt = schedules.getCreateDate();
         this.updatedAt = schedules.getUpdateDate();
     }
-
-
-
 
 }

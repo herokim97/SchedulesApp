@@ -48,9 +48,4 @@ public class Schedules {
         this.updateDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
     }
-
-
-
-
-
 }

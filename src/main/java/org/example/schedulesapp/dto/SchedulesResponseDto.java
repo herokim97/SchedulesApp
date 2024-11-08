@@ -5,6 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.example.schedulesapp.entity.Schedules;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Getter
 @AllArgsConstructor
 public class SchedulesResponseDto {
@@ -17,7 +21,12 @@ public class SchedulesResponseDto {
     private String createdAt;
     private String updatedAt;
 
+
     public SchedulesResponseDto(Schedules schedules) {
+
+
+
+
         this.id = schedules.getId();
         this.title = schedules.getTitle();
         this.work = schedules.getWork();

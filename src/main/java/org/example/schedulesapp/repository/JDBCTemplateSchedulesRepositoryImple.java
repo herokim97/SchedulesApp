@@ -28,11 +28,11 @@ import java.util.Date;
 public class JDBCTemplateSchedulesRepositoryImple implements SchedulesRepository {
 
     private final JdbcTemplate jdbcTemplate;
-    private final DataSourceTransactionManagerAutoConfiguration dataSourceTransactionManagerAutoConfiguration;
+//    private final DataSourceTransactionManagerAutoConfiguration dataSourceTransactionManagerAutoConfiguration;
 
-    public JDBCTemplateSchedulesRepositoryImple(DataSource dataSource, DataSourceTransactionManagerAutoConfiguration dataSourceTransactionManagerAutoConfiguration) {
+    public JDBCTemplateSchedulesRepositoryImple(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
-        this.dataSourceTransactionManagerAutoConfiguration = dataSourceTransactionManagerAutoConfiguration;
+//        this.dataSourceTransactionManagerAutoConfiguration = dataSourceTransactionManagerAutoConfiguration;
     }
 
 
@@ -65,7 +65,7 @@ public class JDBCTemplateSchedulesRepositoryImple implements SchedulesRepository
     public List<SchedulesResponseDto> findAllSchedules(String userId, String updatedAt) {
         //
         if (userId != null && updatedAt != null) {
-            return jdbcTemplate.query("select * from schedules where userId LIKE ? order by updatedAt desc", schedulesMapper(), userId);
+            return jdbcTemplate.query("select * from schedules where userId = ? order by updatedAt desc", schedulesMapper(), userId);
         } else if (userId != null && updatedAt == null) {
             return jdbcTemplate.query("select * from schedules where userId = ? order by updatedAt desc", schedulesMapper(), userId);
         } else if (userId == null && updatedAt != null) {
